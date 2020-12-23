@@ -1,0 +1,37 @@
+<!-- video-5_3_start -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Spring Boot 2 JPA</title>
+</head>
+<body>
+<h1>JPA Troubleshooting test</h1>
+<h2>List of authors</h2>
+<table>
+<tr>
+<th>first name</th>
+<th>last name</th>
+<th> list of books</th>
+</tr>
+<tr th:each="author:${authorlist}">
+<td th:utext="${author.firstname}"></td>
+<td th:utext="${author.lastname}"></td>
+<td> <a th:href="@{|/books?authorid=${author.id}|}">list of books</a></td>
+</tr>
+
+</table>
+<th:block th:if="${booklist!=null}">
+<table>
+<tr>
+<th>title</th>
+</tr>
+
+<tr th:each="book: ${booklist}">
+<td th:utext="${book.title}"></td>
+</tr>
+</table>
+</th:block>
+</body>
+</html>
+<!-- video-5_3_end -->

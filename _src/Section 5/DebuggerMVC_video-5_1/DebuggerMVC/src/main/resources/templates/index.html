@@ -1,0 +1,31 @@
+<!-- video-5_1_start -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Spring MVC Test</title>
+</head>
+<body>
+<h1> A math demo example
+</h1>
+<form method="POST" th:object="${mathobject}" th:action="@{/}">
+<table>
+<tr><td>Value A:</td><td><input type="text" th:field="*{valueA}"></input></td></tr>
+<tr><td>Value B:</td><td><input type="text" th:field="*{valueB}"></input></td></tr>
+<tr><td><input type="submit" name="action" th:value="product" value="product"></td>
+<td><input type="submit" name="action" th:value="divide" value="divide"></td>
+</tr>
+</table>
+
+</form>
+<th:block th:if="${product!=null}">
+<p> Product is <span th:utext="${product}"></span></p>
+</th:block>
+<th:block th:if="${division!=null}">
+<p> Division is <span th:utext="${division}"></span></p>
+</th:block>
+<th:block th:if="${exception!=null}">
+<p> Exception: <span th:utext="${exception}"></span></p> </th:block>
+</body>
+</html>
+<!-- video-5_1_end -->
